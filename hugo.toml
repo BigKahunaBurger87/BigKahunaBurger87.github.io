@@ -3,8 +3,12 @@ languageCode = 'en-us'
 title = 'BigKahunaBurger87 - Walkthroughs & Tools'
 theme = 'PaperMod'
 
+[author]
+    name = "BigKahunaBurger87"
+
 [params]
     defaultTheme = "auto"
+    author = "BigKahunaBurger87"
     ShowReadingTime = true
     ShowShareButtons = true
     ShowPostNavLinks = true

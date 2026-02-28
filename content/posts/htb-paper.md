@@ -1,6 +1,6 @@
 ---
 title: "HackTheBox - Paper"
-date: 2026-02-28T16:18:50-05:00
+date: 2026-02-28T16:22:22-05:00
 draft: false
 tags: ["htb", "walkthrough", "paper"]
 categories: ["HackTheBox"]
@@ -50,9 +50,9 @@ Host is up (0.019s latency).
 PORT    STATE SERVICE  VERSION
 22/tcp  open  ssh      OpenSSH 8.0 (protocol 2.0)
 | ssh-hostkey: 
-|   2048 1005ea5056a600cb1c9c93df5f83e064 (RSA)
-|   256 588c821cc6632a83875c2f2b4f4dc379 (ECDSA)
-|_  256 3178afd13bc42e9d604eeb5d03eca022 (ED25519)
+|   2048 ******************************** (RSA)
+|   256 ******************************** (ECDSA)
+|_  256 ******************************** (ED25519)
 80/tcp  open  http     Apache httpd 2.4.37 ((centos) OpenSSL/1.1.1k mod_fcgid/2.3.9)
 |_http-generator: HTML Tidy for HTML5 for Linux version 5.7.28
 |_http-title: HTTP Server Test Page powered by CentOS
@@ -244,10 +244,10 @@ secnigmaftw
 uid=0(root) gid=0(root) groups=0(root)
 
 [root@paper secnigma]# cat /home/dwight/user.txt 
-e1c700329c0f60b2b912469065254980
+********************************
 
 [root@paper secnigma]# cat /root/root.txt
-eec0de6f78173832c074aba0e720ce00
+********************************
 
 
 

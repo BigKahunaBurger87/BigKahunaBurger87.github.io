@@ -63,6 +63,14 @@ foreach ($Match in $Matches) {
         }
     }
 
+    if ($ImageName -match "user" -or $ImageName -match "root" -or $ImageName -match "flag") {
+        Write-Warning "Potentially sensitive image found: $ImageName"
+        $UserResponse = Read-Host "  Is this image safe to publish? (y/n)"
+        if ($UserResponse -ne 'y') {
+            Write-Error "Script stopped by user due to sensitive image: $ImageName. Please blur manually and run again."
+        }
+    }
+    
     if (Test-Path $SourceImg) {
         # Copy image
         Copy-Item -Path $SourceImg -Destination $DestImgDir -Force
@@ -82,7 +90,28 @@ foreach ($Match in $Matches) {
     }
 }
 
-# 5. Add/Fix Frontmatter
+# 5. Redact Sensitive Information (Text)
+Write-Host "Redacting sensitive text..." -ForegroundColor Cyan
+
+# 1. 32-character Hex Flags (standard HTB flags)
+# Pattern matches exactly 32 hex chars, surrounded by non-word chars
+# This catches most user.txt and root.txt hashes
+$FlagPattern = '\b[a-fA-F0-9]{32}\b'
+if ($Content -match $FlagPattern) {
+    $Content = [regex]::Replace($Content, $FlagPattern, '********************************')
+    Write-Host "  Redacted potential 32-char flags." -ForegroundColor Yellow
+}
+
+# 2. Known sensitive files contents
+# Pattern: cat user.txt\s+([a-f0-9]{32})
+# This is redundant if the above pattern works, but good as a specific check
+$UserTxtPattern = '(?i)(user\.txt|root\.txt)\s*(\r?\n)+\s*([a-fA-F0-9]{32})'
+if ($Content -match $UserTxtPattern) {
+    $Content = [regex]::Replace($Content, $UserTxtPattern, '$1`n`n********************************')
+    Write-Host "  Redacted specific user/root.txt content." -ForegroundColor Yellow
+}
+
+# 6. Add/Fix Frontmatter
 Write-Host "Updating frontmatter..." -ForegroundColor Cyan
 if ($Content -notmatch "^---") {
     $DateStr = (Get-Date).ToString("yyyy-MM-ddTHH:mm:sszzz")

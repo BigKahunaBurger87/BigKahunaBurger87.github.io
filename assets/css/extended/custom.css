@@ -1,0 +1,232 @@
+/* ── Black & Orange Hacker Theme ─────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+
+/* Force dark mode always */
+:root,
+[data-theme="dark"],
+[data-theme="light"] {
+    --theme:            #0a0a0a;
+    --entry:            #111111;
+    --primary:          #e8e8e8;
+    --secondary:        #999999;
+    --tertiary:         #1a1a1a;
+    --content:          #d0d0d0;
+    --code-block-bg:    #0d0d0d;
+    --code-bg:          #1a1a1a;
+    --border:           #2a2a2a;
+    --hljs-bg:          #0d0d0d;
+    --gap:              24px;
+    --radius:           2px;
+    color-scheme:       dark;
+}
+
+/* ── Typography ────────────────────────────────────────────────────────── */
+body {
+    font-family: 'Fira Code', 'Courier New', monospace !important;
+    background-color: #0a0a0a !important;
+    color: #d0d0d0 !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.entry-title,
+.home-info .entry-title {
+    font-family: 'VT323', 'Courier New', monospace !important;
+    color: #ff6600 !important;
+    letter-spacing: 1px;
+}
+
+/* Site title / logo */
+.logo a,
+#site-header .logo,
+header .logo a {
+    font-family: 'VT323', monospace !important;
+    font-size: 2rem !important;
+    color: #ff6600 !important;
+    text-shadow: 0 0 8px #ff6600aa;
+    letter-spacing: 2px;
+}
+
+/* ── Navigation ────────────────────────────────────────────────────────── */
+header,
+.nav {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #ff6600 !important;
+}
+
+.nav a,
+.menu a {
+    font-family: 'Fira Code', monospace !important;
+    color: #ff6600 !important;
+}
+
+.nav a:hover,
+.menu a:hover {
+    color: #ffaa44 !important;
+    text-shadow: 0 0 6px #ff660088;
+}
+
+/* ── Links ─────────────────────────────────────────────────────────────── */
+a {
+    color: #ff6600 !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffaa44 !important;
+    text-decoration: underline;
+}
+
+/* ── Home / Hero Section ───────────────────────────────────────────────── */
+.home-info {
+    background-color: #0d0d0d !important;
+    border: 1px solid #ff6600 !important;
+    border-radius: 2px;
+    padding: 2rem !important;
+    box-shadow: 0 0 16px #ff660033;
+}
+
+.home-info .entry-header h1 {
+    font-family: 'VT323', monospace !important;
+    font-size: 3rem !important;
+    color: #ff6600 !important;
+    text-shadow: 0 0 10px #ff660088;
+}
+
+/* Terminal cursor blink on title */
+.home-info .entry-header h1::after {
+    content: '_';
+    animation: blink 1s step-start infinite;
+    color: #ff6600;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ── Post Cards / Entries ──────────────────────────────────────────────── */
+.post-entry,
+article.post-entry {
+    background-color: #111111 !important;
+    border: 1px solid #2a2a2a !important;
+    border-radius: 2px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.post-entry:hover,
+article.post-entry:hover {
+    border-color: #ff6600 !important;
+    box-shadow: 0 0 10px #ff660033 !important;
+}
+
+.post-entry .entry-title a {
+    color: #ff6600 !important;
+    font-family: 'VT323', monospace !important;
+    font-size: 1.6rem !important;
+}
+
+/* ── Code Blocks ───────────────────────────────────────────────────────── */
+pre,
+code,
+pre code {
+    font-family: 'Fira Code', 'Courier New', monospace !important;
+    background-color: #0d0d0d !important;
+    color: #ff9944 !important;
+    border: 1px solid #2a2a2a;
+}
+
+pre {
+    border-left: 3px solid #ff6600 !important;
+}
+
+/* Inline code */
+:not(pre) > code {
+    background-color: #1a1a1a !important;
+    color: #ff8833 !important;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* ── Table of Contents ─────────────────────────────────────────────────── */
+.toc {
+    background-color: #0d0d0d !important;
+    border: 1px solid #ff6600 !important;
+    border-radius: 2px;
+}
+
+.toc-title {
+    font-family: 'VT323', monospace !important;
+    color: #ff6600 !important;
+    font-size: 1.4rem !important;
+}
+
+/* ── Tags & Categories ─────────────────────────────────────────────────── */
+.post-tags a,
+.terms-tags a {
+    background-color: #1a1a1a !important;
+    color: #ff6600 !important;
+    border: 1px solid #ff6600 !important;
+    border-radius: 2px;
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.85rem !important;
+}
+
+.post-tags a:hover,
+.terms-tags a:hover {
+    background-color: #ff6600 !important;
+    color: #000000 !important;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer {
+    background-color: #000000 !important;
+    border-top: 1px solid #ff6600 !important;
+    color: #666666 !important;
+    font-family: 'Fira Code', monospace !important;
+}
+
+footer a {
+    color: #ff6600 !important;
+}
+
+/* ── Search ─────────────────────────────────────────────────────────────── */
+#searchbox input {
+    background-color: #111111 !important;
+    color: #d0d0d0 !important;
+    border: 1px solid #ff6600 !important;
+    font-family: 'Fira Code', monospace !important;
+}
+
+/* ── Breadcrumbs ────────────────────────────────────────────────────────── */
+.breadcrumbs a {
+    color: #ff6600 !important;
+}
+
+/* ── Post meta (date, reading time) ────────────────────────────────────── */
+.post-meta,
+.post-meta span,
+.post-meta a {
+    color: #888888 !important;
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.8rem !important;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 2px;
+}
+
+/* ── Selection highlight ─────────────────────────────────────────────────── */
+::selection {
+    background-color: #ff660055;
+    color: #ffffff;
+}

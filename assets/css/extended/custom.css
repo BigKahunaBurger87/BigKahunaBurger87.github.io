@@ -107,12 +107,13 @@ body.home .home-info,
 
 .hero-title {
     font-family: 'VT323', monospace !important;
-    font-size: clamp(3rem, 9vw, 6rem) !important;
+    font-size: clamp(1.8rem, 6.5vw, 6rem) !important;
     color: #ff6600 !important;
     text-shadow: 0 0 20px #ff660099, 0 0 40px #ff660044;
     margin: 0 0 0.5rem !important;
     line-height: 1 !important;
     letter-spacing: 4px;
+    white-space: nowrap;
 }
 
 .hero-subtitle {

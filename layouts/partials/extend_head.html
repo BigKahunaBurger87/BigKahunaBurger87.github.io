@@ -1,2 +1,30 @@
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<!-- Security: Referrer Policy -->
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+
+<!-- Security: Content Security Policy -->
+<!-- GitHub Pages cannot set HTTP headers; this meta-tag CSP is best available.       -->
+<!-- X-Frame-Options, X-Content-Type-Options, Permissions-Policy require HTTP headers -->
+<!-- and cannot be set on GitHub Pages.                                                -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src  'self';
+  style-src   'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src    'self' https://fonts.gstatic.com;
+  img-src     'self' https://raw.githubusercontent.com data: https:;
+  connect-src 'self';
+  frame-src   'none';
+  object-src  'none';
+  base-uri    'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests;
+"/>
+
+<!-- Security: prevent MIME-type sniffing (meta fallback; HTTP header preferred) -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+
+<!-- Security: legacy XSS filter for older browsers -->
+<meta http-equiv="X-XSS-Protection" content="1; mode=block"/>

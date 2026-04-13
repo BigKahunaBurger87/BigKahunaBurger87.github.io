@@ -1,0 +1,207 @@
+{{- define "main" }}
+
+<!-- Matrix Canvas Background (hero only) -->
+<canvas id="matrix-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.35;"></canvas>
+
+<!-- ── HERO ────────────────────────────────────────────────────────── -->
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="hero-badge">&gt; SYSTEM ONLINE // HTB OPERATOR</div>
+    <h1 class="hero-title">BigKahunaBurger87</h1>
+    <div class="hero-subtitle">
+      <span id="typewriter-text"></span><span class="tw-cursor">_</span>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="term-line"><span class="term-prompt">root@kali</span><span class="term-at">:</span><span class="term-path">~</span><span class="term-dollar">$</span> whoami</div>
+      <div class="term-output">Penetration Tester | HTB Enthusiast | Security Researcher</div>
+      <div class="term-line"><span class="term-prompt">root@kali</span><span class="term-at">:</span><span class="term-path">~</span><span class="term-dollar">$</span> uname -a</div>
+      <div class="term-output">Kali Linux | Focus: Web Apps · Active Directory · Privilege Escalation</div>
+      <div class="term-line"><span class="term-prompt">root@kali</span><span class="term-at">:</span><span class="term-path">~/machines</span><span class="term-dollar">$</span> ls -la</div>
+      <div class="term-output term-files">drwxr-xr-x cereal/ &nbsp; drwxr-xr-x boardlight/ &nbsp; drwxr-xr-x alert/<br>drwxr-xr-x underpass/ &nbsp; drwxr-xr-x chemistry/ &nbsp; drwxr-xr-x escapetwo/</div>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="/posts/" class="hero-btn-primary">[ VIEW WRITEUPS ]</a>
+      <a href="https://github.com/BigKahunaBurger87" target="_blank" rel="noopener" class="hero-btn-secondary">[ GITHUB ]</a>
+      <a href="https://app.hackthebox.com/profile/1984386" target="_blank" rel="noopener" class="hero-btn-secondary">[ HTB PROFILE ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ───────────────────────────────────────────────────────── -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">💀</div>
+      <div class="stat-number" data-target="6">0</div>
+      <div class="stat-label">Machines Pwned</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🐧</div>
+      <div class="stat-number" data-target="4">0</div>
+      <div class="stat-label">Linux Boxes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🪟</div>
+      <div class="stat-number" data-target="2">0</div>
+      <div class="stat-label">Windows Boxes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔴</div>
+      <div class="stat-number" data-target="1">0</div>
+      <div class="stat-label">Hard Boxes</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ARSENAL ─────────────────────────────────────────────────────── -->
+<section class="arsenal-section">
+  <h2 class="section-heading">// ARSENAL</h2>
+  <div class="tools-grid">
+    <div class="tool-card" title="Network Scanner">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🔍</div>
+      <div class="tool-name">Nmap</div>
+      <div class="tool-cat">Recon</div>
+    </div>
+    <div class="tool-card" title="Web App Testing">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🕷️</div>
+      <div class="tool-name">Burp Suite</div>
+      <div class="tool-cat">Web</div>
+    </div>
+    <div class="tool-card" title="Exploitation Framework">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🎯</div>
+      <div class="tool-name">Metasploit</div>
+      <div class="tool-cat">Exploit</div>
+    </div>
+    <div class="tool-card" title="Password Cracking">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🔨</div>
+      <div class="tool-name">Hashcat</div>
+      <div class="tool-cat">Cracking</div>
+    </div>
+    <div class="tool-card" title="AD Enumeration">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🩸</div>
+      <div class="tool-name">BloodHound</div>
+      <div class="tool-cat">Active Directory</div>
+    </div>
+    <div class="tool-card" title="Linux Privilege Escalation">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🦠</div>
+      <div class="tool-name">LinPEAS</div>
+      <div class="tool-cat">PrivEsc</div>
+    </div>
+    <div class="tool-card" title="Directory Fuzzing">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">📂</div>
+      <div class="tool-name">ffuf</div>
+      <div class="tool-cat">Fuzzing</div>
+    </div>
+    <div class="tool-card" title="AD Certificate Abuse">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">📜</div>
+      <div class="tool-name">Certipy</div>
+      <div class="tool-cat">Active Directory</div>
+    </div>
+    <div class="tool-card" title="Reverse Shells">
+      <div class="tool-glow"></div>
+      <div class="tool-icon">🐚</div>
+      <div class="tool-name">Netcat</div>
+      <div class="tool-cat">Shells</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WRITEUPS ────────────────────────────────────────────────────── -->
+<section class="writeups-section">
+  <h2 class="section-heading">// WRITEUPS</h2>
+  <div class="writeups-grid">
+    {{- $posts := where .Site.RegularPages "Type" "posts" }}
+    {{- range $posts }}
+    <article class="wu-card">
+      <div class="wu-header">
+        {{- $os := "" }}
+        {{- $diff := "" }}
+        {{- range .Params.tags }}
+          {{- if eq . "Windows" }}{{- $os = "WIN" }}{{- end }}
+          {{- if eq . "Linux" }}{{- $os = "LNX" }}{{- end }}
+          {{- if eq . "Hard" }}{{- $diff = "HARD" }}{{- end }}
+          {{- if eq . "Easy" }}{{- $diff = "EASY" }}{{- end }}
+          {{- if eq . "Medium" }}{{- $diff = "MED" }}{{- end }}
+        {{- end }}
+        <span class="wu-os wu-os-{{ $os | lower }}">{{ $os }}</span>
+        <span class="wu-diff wu-diff-{{ $diff | lower }}">{{ $diff }}</span>
+      </div>
+      <h3 class="wu-title"><a href="{{ .Permalink }}">{{ .Title | replaceRE "HTB Writeup: " "" }}</a></h3>
+      <p class="wu-desc">{{ .Description }}</p>
+      <div class="wu-footer">
+        <span class="wu-date">{{ .Date.Format "2006-01-02" }}</span>
+        <a href="{{ .Permalink }}" class="wu-readmore">[ READ MORE → ]</a>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+<script src="/js/matrix.js"></script>
+<script>
+// ── Typewriter ────────────────────────────────────────────────────────
+(function(){
+  const el = document.getElementById('typewriter-text');
+  if (!el) return;
+  const phrases = ['Penetration Tester', 'HTB Enthusiast', 'Red Team Operator', 'Security Researcher', 'Bug Hunter'];
+  let pi = 0, ci = 0, deleting = false;
+  function tick() {
+    const word = phrases[pi];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(tick, 1800); return; }
+    } else {
+      el.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(tick, deleting ? 50 : 80);
+  }
+  tick();
+})();
+
+// ── Counter Animation ─────────────────────────────────────────────────
+(function(){
+  const counters = document.querySelectorAll('.stat-number');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = Math.ceil(target / 30);
+      const t = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current;
+        if (current >= target) clearInterval(t);
+      }, 40);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+})();
+
+// ── Tool card reactive glow on hover ─────────────────────────────────
+(function(){
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      card.style.setProperty('--mx', x + 'px');
+      card.style.setProperty('--my', y + 'px');
+    });
+  });
+})();
+</script>
+
+{{- end }}

@@ -30,18 +30,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
-.post-title,
-.entry-title,
-.home-info .entry-title {
+.post-title, .entry-title, .home-info .entry-title {
     font-family: 'VT323', 'Courier New', monospace !important;
     color: #ff6600 !important;
     letter-spacing: 1px;
 }
 
-/* Site title / logo */
-.logo a,
-#site-header .logo,
-header .logo a {
+.logo a, #site-header .logo, header .logo a {
     font-family: 'VT323', monospace !important;
     font-size: 2rem !important;
     color: #ff6600 !important;
@@ -50,77 +45,425 @@ header .logo a {
 }
 
 /* ── Navigation ────────────────────────────────────────────────────────── */
-header,
-.nav {
+header, .nav {
     background-color: #000000 !important;
     border-bottom: 1px solid #ff6600 !important;
 }
-
-.nav a,
-.menu a {
+.nav a, .menu a {
     font-family: 'Fira Code', monospace !important;
     color: #ff6600 !important;
 }
-
-.nav a:hover,
-.menu a:hover {
+.nav a:hover, .menu a:hover {
     color: #ffaa44 !important;
     text-shadow: 0 0 6px #ff660088;
 }
 
 /* ── Links ─────────────────────────────────────────────────────────────── */
-a {
-    color: #ff6600 !important;
-    text-decoration: none;
+a { color: #ff6600 !important; text-decoration: none; }
+a:hover { color: #ffaa44 !important; text-decoration: underline; }
+
+/* ── Hide default home-info on custom homepage ────────────────────────── */
+body.home .home-info,
+.home-info { display: none !important; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════════════════════════════════ */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 2rem 4rem;
+    z-index: 1;
+    overflow: hidden;
 }
 
-a:hover {
-    color: #ffaa44 !important;
-    text-decoration: underline;
+.hero-content {
+    max-width: 860px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
-/* ── Home / Hero Section ───────────────────────────────────────────────── */
-.home-info {
-    background-color: #0d0d0d !important;
-    border: 1px solid #ff6600 !important;
-    border-radius: 2px;
-    padding: 2rem !important;
-    box-shadow: 0 0 16px #ff660033;
-}
-
-.home-info .entry-header h1 {
-    font-family: 'VT323', monospace !important;
-    font-size: 3rem !important;
-    color: #ff6600 !important;
-    text-shadow: 0 0 10px #ff660088;
-}
-
-/* Terminal cursor blink on title */
-.home-info .entry-header h1::after {
-    content: '_';
-    animation: blink 1s step-start infinite;
+.hero-badge {
+    display: inline-block;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
     color: #ff6600;
+    border: 1px solid #ff6600;
+    padding: 4px 14px;
+    margin-bottom: 1.2rem;
+    letter-spacing: 3px;
+    animation: pulse-border 2s ease-in-out infinite;
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
+@keyframes pulse-border {
+    0%, 100% { box-shadow: 0 0 4px #ff660066; }
+    50%       { box-shadow: 0 0 12px #ff6600cc; }
 }
 
-/* ── Post Cards / Entries ──────────────────────────────────────────────── */
-.post-entry,
-article.post-entry {
+.hero-title {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(3rem, 9vw, 6rem) !important;
+    color: #ff6600 !important;
+    text-shadow: 0 0 20px #ff660099, 0 0 40px #ff660044;
+    margin: 0 0 0.5rem !important;
+    line-height: 1 !important;
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.15rem;
+    color: #aaaaaa;
+    min-height: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.tw-cursor {
+    color: #ff6600;
+    animation: blink 0.8s step-start infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ── Terminal block ─────────────────────────────────────────────────── */
+.hero-terminal {
+    background: rgba(0,0,0,0.75);
+    border: 1px solid #333;
+    border-left: 3px solid #ff6600;
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    margin: 0 auto 2rem;
+    max-width: 700px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.88rem;
+    backdrop-filter: blur(4px);
+}
+
+.term-line {
+    margin: 0.4rem 0 0.1rem;
+}
+
+.term-prompt { color: #ff6600; font-weight: 600; }
+.term-at     { color: #888; }
+.term-path   { color: #44aaff; }
+.term-dollar { color: #e0e0e0; margin: 0 6px; }
+.term-output { color: #aaaaaa; margin: 0 0 0.6rem 1rem; padding-left: 0.5rem; border-left: 1px solid #333; }
+.term-files  { color: #44aaff; }
+
+/* ── Hero buttons ───────────────────────────────────────────────────── */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.hero-btn-primary,
+.hero-btn-secondary {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    text-decoration: none !important;
+}
+
+.hero-btn-primary {
+    background: #ff6600 !important;
+    color: #000 !important;
+    border: 1px solid #ff6600;
+}
+.hero-btn-primary:hover {
+    background: #ff8c00 !important;
+    color: #000 !important;
+    box-shadow: 0 0 16px #ff660099;
+    text-decoration: none !important;
+}
+
+.hero-btn-secondary {
+    background: transparent !important;
+    color: #ff6600 !important;
+    border: 1px solid #ff6600;
+}
+.hero-btn-secondary:hover {
+    background: #ff660015 !important;
+    box-shadow: 0 0 12px #ff660066;
+    text-decoration: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   STATS SECTION
+═══════════════════════════════════════════════════════════════════════ */
+.stats-section {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 2rem;
+    background: rgba(0,0,0,0.6);
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    cursor: default;
+}
+.stat-card:hover {
+    border-color: #ff6600;
+    box-shadow: 0 0 20px #ff660033;
+}
+
+.stat-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+
+.stat-number {
+    font-family: 'VT323', monospace;
+    font-size: 3.5rem;
+    color: #ff6600;
+    line-height: 1;
+    text-shadow: 0 0 10px #ff660066;
+}
+
+.stat-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0.3rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ARSENAL / TOOLS SECTION
+═══════════════════════════════════════════════════════════════════════ */
+.arsenal-section {
+    position: relative;
+    z-index: 2;
+    padding: 4rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    font-family: 'VT323', monospace !important;
+    font-size: 2rem !important;
+    color: #ff6600 !important;
+    letter-spacing: 3px;
+    margin-bottom: 2rem !important;
+    text-align: center;
+}
+.section-heading::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #ff6600;
+    margin: 0 auto 0.5rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.tool-card {
+    position: relative;
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 1.5rem 1rem 1.2rem;
+    text-align: center;
+    cursor: default;
+    transition: border-color 0.2s, transform 0.2s;
+    overflow: hidden;
+    --mx: 50%;
+    --my: 50%;
+}
+
+.tool-card:hover {
+    border-color: #ff6600;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px #ff660033;
+}
+
+/* Radial spotlight that follows cursor */
+.tool-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle 80px at var(--mx) var(--my), #ff660022, transparent 70%);
+    pointer-events: none;
+    transition: opacity 0.2s;
+    opacity: 0;
+}
+.tool-card:hover .tool-glow { opacity: 1; }
+
+.tool-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 4px #ff660066);
+    transition: filter 0.2s, transform 0.2s;
+}
+.tool-card:hover .tool-icon {
+    filter: drop-shadow(0 0 10px #ff6600bb);
+    transform: scale(1.15);
+}
+
+.tool-name {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+    color: #e0e0e0;
+    font-weight: 600;
+}
+
+.tool-cat {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.68rem;
+    color: #ff660099;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   WRITEUPS GRID
+═══════════════════════════════════════════════════════════════════════ */
+.writeups-section {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 2rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.writeups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2rem;
+}
+
+.wu-card {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 1.4rem;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+.wu-card:hover {
+    border-color: #ff6600;
+    box-shadow: 0 4px 20px #ff660033;
+    transform: translateY(-3px);
+}
+
+.wu-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    align-items: center;
+}
+
+.wu-os, .wu-diff {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.wu-os-lnx { background: #1a3300; color: #66ff33; border: 1px solid #66ff3355; }
+.wu-os-win { background: #001a33; color: #3399ff; border: 1px solid #3399ff55; }
+
+.wu-diff-easy   { background: #002200; color: #44ff88; border: 1px solid #44ff8855; }
+.wu-diff-med    { background: #331a00; color: #ffaa33; border: 1px solid #ffaa3355; }
+.wu-diff-hard   { background: #220000; color: #ff4444; border: 1px solid #ff444455; }
+
+.wu-title {
+    font-family: 'VT323', monospace !important;
+    font-size: 1.4rem !important;
+    margin: 0 0 0.5rem !important;
+    line-height: 1.2 !important;
+}
+.wu-title a {
+    color: #ff6600 !important;
+    text-decoration: none !important;
+}
+.wu-title a:hover {
+    color: #ffaa44 !important;
+    text-shadow: 0 0 8px #ff660066;
+    text-decoration: none !important;
+}
+
+.wu-desc {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78rem;
+    color: #888;
+    flex: 1;
+    margin: 0 0 1rem;
+    line-height: 1.5;
+}
+
+.wu-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+    padding-top: 0.8rem;
+    margin-top: auto;
+}
+
+.wu-date {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: #555;
+}
+
+.wu-readmore {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.72rem;
+    color: #ff6600 !important;
+    text-decoration: none !important;
+    letter-spacing: 1px;
+    transition: text-shadow 0.2s;
+}
+.wu-readmore:hover {
+    text-shadow: 0 0 8px #ff660099;
+    text-decoration: none !important;
+    color: #ffaa44 !important;
+}
+
+/* ── Blog post page styles (non-homepage) ─────────────────────────── */
+.post-entry, article.post-entry {
     background-color: #111111 !important;
     border: 1px solid #2a2a2a !important;
     border-radius: 2px;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
-
-.post-entry:hover,
-article.post-entry:hover {
+.post-entry:hover, article.post-entry:hover {
     border-color: #ff6600 !important;
     box-shadow: 0 0 10px #ff660033 !important;
 }
-
 .post-entry .entry-title a {
     color: #ff6600 !important;
     font-family: 'VT323', monospace !important;
@@ -128,20 +471,13 @@ article.post-entry:hover {
 }
 
 /* ── Code Blocks ───────────────────────────────────────────────────────── */
-pre,
-code,
-pre code {
+pre, code, pre code {
     font-family: 'Fira Code', 'Courier New', monospace !important;
     background-color: #0d0d0d !important;
     color: #ff9944 !important;
     border: 1px solid #2a2a2a;
 }
-
-pre {
-    border-left: 3px solid #ff6600 !important;
-}
-
-/* Inline code */
+pre { border-left: 3px solid #ff6600 !important; }
 :not(pre) > code {
     background-color: #1a1a1a !important;
     color: #ff8833 !important;
@@ -149,22 +485,12 @@ pre {
     border-radius: 2px;
 }
 
-/* ── Table of Contents ─────────────────────────────────────────────────── */
-.toc {
-    background-color: #0d0d0d !important;
-    border: 1px solid #ff6600 !important;
-    border-radius: 2px;
-}
+/* ── TOC ────────────────────────────────────────────────────────────────── */
+.toc { background-color: #0d0d0d !important; border: 1px solid #ff6600 !important; border-radius: 2px; }
+.toc-title { font-family: 'VT323', monospace !important; color: #ff6600 !important; font-size: 1.4rem !important; }
 
-.toc-title {
-    font-family: 'VT323', monospace !important;
-    color: #ff6600 !important;
-    font-size: 1.4rem !important;
-}
-
-/* ── Tags & Categories ─────────────────────────────────────────────────── */
-.post-tags a,
-.terms-tags a {
+/* ── Tags ───────────────────────────────────────────────────────────────── */
+.post-tags a, .terms-tags a {
     background-color: #1a1a1a !important;
     color: #ff6600 !important;
     border: 1px solid #ff6600 !important;
@@ -172,9 +498,7 @@ pre {
     font-family: 'Fira Code', monospace !important;
     font-size: 0.85rem !important;
 }
-
-.post-tags a:hover,
-.terms-tags a:hover {
+.post-tags a:hover, .terms-tags a:hover {
     background-color: #ff6600 !important;
     color: #000000 !important;
 }
@@ -185,48 +509,27 @@ footer {
     border-top: 1px solid #ff6600 !important;
     color: #666666 !important;
     font-family: 'Fira Code', monospace !important;
+    position: relative;
+    z-index: 2;
 }
+footer a { color: #ff6600 !important; }
 
-footer a {
-    color: #ff6600 !important;
-}
-
-/* ── Search ─────────────────────────────────────────────────────────────── */
-#searchbox input {
-    background-color: #111111 !important;
-    color: #d0d0d0 !important;
-    border: 1px solid #ff6600 !important;
-    font-family: 'Fira Code', monospace !important;
-}
-
-/* ── Breadcrumbs ────────────────────────────────────────────────────────── */
-.breadcrumbs a {
-    color: #ff6600 !important;
-}
-
-/* ── Post meta (date, reading time) ────────────────────────────────────── */
-.post-meta,
-.post-meta span,
-.post-meta a {
+/* ── Post meta ──────────────────────────────────────────────────────────── */
+.post-meta, .post-meta span, .post-meta a {
     color: #888888 !important;
     font-family: 'Fira Code', monospace !important;
     font-size: 0.8rem !important;
 }
 
 /* ── Scrollbar ──────────────────────────────────────────────────────────── */
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    background: #0a0a0a;
-}
-::-webkit-scrollbar-thumb {
-    background: #ff6600;
-    border-radius: 2px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #ff6600; border-radius: 2px; }
+::selection { background-color: #ff660055; color: #ffffff; }
 
-/* ── Selection highlight ─────────────────────────────────────────────────── */
-::selection {
-    background-color: #ff660055;
-    color: #ffffff;
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .hero-terminal { font-size: 0.75rem; }
+    .tools-grid { grid-template-columns: repeat(3, 1fr); }
+    .writeups-grid { grid-template-columns: 1fr; }
 }

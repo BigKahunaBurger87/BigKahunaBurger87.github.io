@@ -96,7 +96,7 @@ We see a username and password:
 
 ```text
 user=dolibarrowner
-pass=serverfun2$2023!!
+pass=[REDACTED]
 ```
 
 LinPEAS also revealed a user account:

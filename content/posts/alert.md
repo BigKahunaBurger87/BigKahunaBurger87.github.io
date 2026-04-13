@@ -69,7 +69,7 @@ Then cracked the hash with Hashcat:
 
 ## 🔑 SSH & Internal Enumeration
 
-I connected via SSH as `albert:manchesterunited` and ran enumeration:
+I connected via SSH as `albert:[REDACTED]` and ran enumeration:
 
 ![SSH into albert Account](https://raw.githubusercontent.com/9t0wl/HTB-Portfolio/main/src/assets/alertssh.png)
 

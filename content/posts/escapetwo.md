@@ -34,7 +34,7 @@ We obtained initial credentials or enumerated shares and usernames via SMB or LD
 After pivoting through enumeration, we identified a low-privileged user:
 
 ```text
-rose / KxEPkKe6R8su
+rose / [REDACTED]
 ```
 
 ---

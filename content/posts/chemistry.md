@@ -13,6 +13,8 @@ showToc: true
 
 This write-up walks through the Chemistry machine from Hack The Box. The box involves SQL injection, file upload exploitation with CIF parsing, reverse shell via object injection, and multiple privilege escalation paths.
 
+{{< toolbadges "Nmap" "Hashcat" "SQLite3" "curl" "Netcat" "Python http.server" "busybox nc" >}}
+
 ---
 
 ## 🔓 SQL Injection Login Bypass

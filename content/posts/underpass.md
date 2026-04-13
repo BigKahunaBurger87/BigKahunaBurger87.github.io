@@ -15,6 +15,8 @@ In this write-up, I'll walk you through my approach to solving the UnderPass mac
 
 I'll document what I did, what I learned, and how I eventually captured both the `user.txt` and `root.txt` flags.
 
+{{< toolbadges "Nmap" "gobuster" "Hashcat" "SSH" "mosh-client" "daloRADIUS" >}}
+
 ---
 
 ## 🔎 Enumeration

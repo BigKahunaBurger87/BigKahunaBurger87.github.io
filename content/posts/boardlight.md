@@ -13,6 +13,8 @@ showToc: true
 
 In the world of cybersecurity, practical skills are as crucial as theoretical knowledge. "BoardLight," a captivating machine on Hack The Box, offered an exceptional opportunity to hone my penetration testing skills through a series of intriguing challenges ranging from initial access via web vulnerabilities to complex privilege escalations.
 
+{{< toolbadges "Nmap" "ffuf" "whatweb" "LinPEAS" "Netcat" "CVE-2023-30253 Exploit" "Enlightenment Exploit" >}}
+
 ---
 
 ## 🎯 Objectives

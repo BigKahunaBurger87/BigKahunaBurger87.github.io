@@ -15,6 +15,8 @@ showToc: true
 
 One unique challenge was building the **GenericPotato** binary. After multiple failed attempts on my Kali Linux system due to missing .NET Framework 4.5 assemblies, I used my wife's Windows machine with **Visual Studio 2022** and the **.NET v4.8 Developer Pack** to build the executable successfully. 🪢💻
 
+{{< toolbadges "Nmap" "dirsearch" "git-dumper" "curl" "Netcat" "GenericPotato" "Python http.server" "Visual Studio 2022" >}}
+
 ---
 
 ## 🔎 Enumeration

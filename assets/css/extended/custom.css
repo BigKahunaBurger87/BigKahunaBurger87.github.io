@@ -254,98 +254,6 @@ body.home .home-info,
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
-   ARSENAL / TOOLS SECTION
-═══════════════════════════════════════════════════════════════════════ */
-.arsenal-section {
-    position: relative;
-    z-index: 2;
-    padding: 4rem 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.section-heading {
-    font-family: 'VT323', monospace !important;
-    font-size: 2rem !important;
-    color: #ff6600 !important;
-    letter-spacing: 3px;
-    margin-bottom: 2rem !important;
-    text-align: center;
-}
-.section-heading::before {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: #ff6600;
-    margin: 0 auto 0.5rem;
-}
-
-.tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 1rem;
-}
-
-.tool-card {
-    position: relative;
-    background: #0d0d0d;
-    border: 1px solid #2a2a2a;
-    border-radius: 4px;
-    padding: 1.5rem 1rem 1.2rem;
-    text-align: center;
-    cursor: default;
-    transition: border-color 0.2s, transform 0.2s;
-    overflow: hidden;
-    --mx: 50%;
-    --my: 50%;
-}
-
-.tool-card:hover {
-    border-color: #ff6600;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px #ff660033;
-}
-
-/* Radial spotlight that follows cursor */
-.tool-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle 80px at var(--mx) var(--my), #ff660022, transparent 70%);
-    pointer-events: none;
-    transition: opacity 0.2s;
-    opacity: 0;
-}
-.tool-card:hover .tool-glow { opacity: 1; }
-
-.tool-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    filter: drop-shadow(0 0 4px #ff660066);
-    transition: filter 0.2s, transform 0.2s;
-}
-.tool-card:hover .tool-icon {
-    filter: drop-shadow(0 0 10px #ff6600bb);
-    transform: scale(1.15);
-}
-
-.tool-name {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.82rem;
-    color: #e0e0e0;
-    font-weight: 600;
-}
-
-.tool-cat {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.68rem;
-    color: #ff660099;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 0.2rem;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════
    WRITEUPS GRID
 ═══════════════════════════════════════════════════════════════════════ */
 .writeups-section {
@@ -531,6 +439,67 @@ footer a { color: #ff6600 !important; }
 /* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
     .hero-terminal { font-size: 0.75rem; }
-    .tools-grid { grid-template-columns: repeat(3, 1fr); }
     .writeups-grid { grid-template-columns: 1fr; }
+    .tools-used-grid { gap: 0.4rem; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TOOLS USED (per-writeup shortcode)
+═══════════════════════════════════════════════════════════════════════ */
+.tools-used-section {
+    background: #0d0d0d;
+    border: 1px solid #ff6600;
+    border-radius: 4px;
+    padding: 1rem 1.2rem 1.2rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.tools-used-heading {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: #ff6600;
+    letter-spacing: 2px;
+    margin-bottom: 0.7rem;
+    text-transform: uppercase;
+}
+
+.tools-used-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tool-badge {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.72rem;
+    background: #1a1a1a;
+    color: #ff9944;
+    border: 1px solid #ff660066;
+    border-radius: 2px;
+    padding: 3px 10px;
+    letter-spacing: 0.5px;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    cursor: default;
+}
+.tool-badge:hover {
+    background: #ff6600;
+    color: #000;
+    border-color: #ff6600;
+}
+
+/* ── Page Views Counter stat card ───────────────────────────────────────── */
+.stat-card-views {
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.stat-label-top {
+    margin-bottom: 0.4rem;
+}
+
+.views-badge {
+    display: block;
+    height: 22px;
+    border-radius: 2px;
 }

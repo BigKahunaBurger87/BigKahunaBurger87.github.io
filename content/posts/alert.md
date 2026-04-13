@@ -13,6 +13,8 @@ showToc: true
 
 In this write-up, I'll walk you through my approach to solving the **Alert** machine from Hack The Box. Alert is a Linux box rated as "Easy," but it gave me a lot of web exploitation and privilege escalation practice.
 
+{{< toolbadges "Nmap" "Hashcat" "LinPEAS" "Netcat" "Burp Suite" "Python http.server" >}}
+
 ---
 
 ## 🔎 Enumeration

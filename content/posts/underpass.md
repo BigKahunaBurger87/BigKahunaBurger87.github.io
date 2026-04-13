@@ -118,4 +118,4 @@ A great example of chaining low-hanging fruit into full system compromise!
 
 ### ✅ Machine Completed: UnderPass
 
-[9t0wl #1984386](https://app.hackthebox.com/profile/1984386)
+[BigKahunaBurger87 #192375](https://app.hackthebox.com/users/192375)

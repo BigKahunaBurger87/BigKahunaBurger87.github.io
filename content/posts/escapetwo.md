@@ -11,7 +11,7 @@ showToc: true
 
 This write-up walks through the EscapeTwo machine from Hack The Box. As a Windows-based machine rated "Easy," it offers an engaging dive into Active Directory enumeration, DACL manipulation, and certificate-based privilege escalation.
 
-[9t0wl #1984386](https://app.hackthebox.com/profile/1984386)
+[BigKahunaBurger87 #192375](https://app.hackthebox.com/users/192375)
 
 ---
 

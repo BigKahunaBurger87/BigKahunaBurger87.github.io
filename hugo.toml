@@ -1,6 +1,6 @@
 baseURL = 'https://BigKahunaBurger87.github.io/'
 languageCode = 'en-us'
-title = 'BigKahunaBurger87 - Walkthroughs & Tools'
+title = 'BigKahunaBurger87'
 theme = 'PaperMod'
 
 [author]
@@ -27,17 +27,19 @@ theme = 'PaperMod'
 
 [menu]
     [[menu.main]]
-        identifier = "categories"
-        name = "Categories"
-        url = "/categories/"
+        identifier = "blog"
+        name = "Blog"
+        url = "/posts/"
         weight = 10
     [[menu.main]]
-        identifier = "tags"
-        name = "Tags"
-        url = "/tags/"
+        identifier = "walkthroughs"
+        name = "Walkthroughs"
+        url = "/categories/htb-writeups/"
         weight = 20
     [[menu.main]]
         identifier = "tools"
-        name = "My Tools"
-        url = "https://github.com/BigKahunaBurger87?tab=repositories"
+        name = "Tools"
+        url = "https://github.com/BigKahunaBurger87"
         weight = 30
+        [menu.main.params]
+            external = true

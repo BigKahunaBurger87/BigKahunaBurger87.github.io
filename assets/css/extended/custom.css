@@ -45,18 +45,63 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ── Navigation ────────────────────────────────────────────────────────── */
-header, .nav {
+header.site-header, .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background-color: #000000 !important;
     border-bottom: 1px solid #ff6600 !important;
 }
-.nav a, .menu a {
-    font-family: 'Fira Code', monospace !important;
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 54px;
+}
+
+.nav-logo a {
+    font-family: 'VT323', monospace !important;
+    font-size: 1.7rem !important;
     color: #ff6600 !important;
+    text-shadow: 0 0 8px #ff6600aa;
+    letter-spacing: 2px;
+    text-decoration: none !important;
+    white-space: nowrap;
 }
-.nav a:hover, .menu a:hover {
+.nav-logo a:hover {
     color: #ffaa44 !important;
-    text-shadow: 0 0 6px #ff660088;
+    text-decoration: none !important;
 }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    font-family: 'Fira Code', monospace !important;
+    font-size: 0.9rem !important;
+    color: #ff6600 !important;
+    text-decoration: none !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+.nav-links li a:hover {
+    color: #ffaa44 !important;
+    text-shadow: 0 0 8px #ff660088;
+    text-decoration: none !important;
+}
+
+/* Hide PaperMod's default header so our custom one shows */
+#site-header { display: none !important; }
 
 /* ── Links ─────────────────────────────────────────────────────────────── */
 a { color: #ff6600 !important; text-decoration: none; }

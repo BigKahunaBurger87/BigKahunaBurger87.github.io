@@ -7,107 +7,123 @@ description: "Today's top cybersecurity stories: Adobe zero-day, Booking.com bre
 showToc: true
 ---
 
-> 📡 **Daily intel roundup** — summarized from The Hacker News & BleepingComputer. Stay sharp.
+Alright, another Monday, another dumpster fire in the security world. Grabbed coffee, pulled up my feeds, and honestly today was a lot. Let me break down what caught my attention.
 
 ---
 
-## 🔴 Critical: Adobe Acrobat/Reader Zero-Day (CVE-2026-34621)
+## 🔴 Adobe — Again — Zero-Day in the Wild (CVE-2026-34621)
 
-Adobe pushed an **emergency out-of-band patch** for Acrobat and Acrobat Reader today fixing a zero-day vulnerability that has been actively exploited in the wild since at least **December 2025**. The flaw, tracked as **CVE-2026-34621**, was being used in targeted attacks before a fix was available. If you have Acrobat or Reader installed — **patch it now**, this is not a wait-for-patch-Tuesday situation.
+So this one's been silently getting people since **December**. Adobe just dropped an emergency patch today for Acrobat and Reader, and I mean emergency — this wasn't a scheduled Tuesday release. CVE-2026-34621 has been actively exploited in targeted attacks for months before anyone said a word publicly.
 
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/adobe-rolls-out-emergency-fix-for-acrobat-reader-zero-day-flaw/)
+This is exactly the kind of thing that frustrates me. Four months of active exploitation before an out-of-band patch. If you have Acrobat installed, stop reading this and go patch it right now. I'll wait.
+
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/adobe-rolls-out-emergency-fix-for-acrobat-reader-zero-day-flaw/)
 
 ---
 
-## 🏦 CPUID Supply Chain Attack — Trojanized CPU-Z & HWMonitor
+## 🏦 The CPUID Thing Is Genuinely Scary
 
-For roughly **19 hours** (April 9–10), the popular hardware monitoring site **cpuid.com** was compromised. Download links for CPU-Z and HWMonitor were silently replaced with links to malicious executables that deployed **STX RAT** — a remote access trojan. CPUID confirmed the breach on X, attributing it to a compromised "secondary feature/side API." The original signed binaries were **not** affected, but anyone who downloaded during that window should treat their machine as compromised.
+Okay so this one hit close to home because I've downloaded CPU-Z more times than I can count. Turns out **cpuid.com was compromised for about 19 hours** — April 9th to 10th — and during that window, the download links for CPU-Z and HWMonitor were quietly swapped out to point to malware-dropping fakes deploying something called **STX RAT**.
 
-**Malicious domains used:**
+What makes this worse is how clean it looked. CPUID said a "secondary API" got popped and it caused the main site to serve malicious links. The signed original files were fine — but if you just clicked download without thinking? You got hit. And let's be real, nobody checks hashes on a tool they've downloaded a dozen times before.
+
+The malicious domains if you want to check your DNS/proxy logs:
 - `cahayailmukreatif.web[.]id`
 - `pub-45c2577dbd174292a02137c18e7b1b5a.r2[.]dev`
 - `transitopalermo[.]com`
 - `vatrobran[.]hr`
 
-📎 [Source – The Hacker News](https://thehackernews.com/2026/04/cpuid-breach-distributes-stx-rat-via.html)
+If you downloaded anything from cpuid.com on April 9th or 10th — assume compromise, rebuild.
+
+📎 [The Hacker News](https://thehackernews.com/2026/04/cpuid-breach-distributes-stx-rat-via.html)
 
 ---
 
-## 🗄️ Data Breaches Round-Up
+## 🗄️ Three Breaches Walk Into a Bar...
 
 ### Booking.com
-Booking.com confirmed unauthorized access to its systems, exposing **reservation and user data**. The company is forcing **reservation PIN resets** for affected users. If you use Booking.com, change your credentials and watch for phishing follow-up attacks targeting exposed reservation data.
+Another one. Booking.com confirmed unauthorized access to their systems — reservation data, personal info, the usual. They're forcing PIN resets which tells me the exposure was real and meaningful. If you've got a trip booked or saved payment info on there, I'd go change passwords and keep an eye out for targeted phishing. Attackers love using stolen reservation data to craft convincing follow-up lures.
 
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/new-bookingcom-data-breach-forces-reservation-pin-resets/)
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/new-bookingcom-data-breach-forces-reservation-pin-resets/)
 
-### Basic-Fit (European Gym Chain)
-Dutch gym operator **Basic-Fit** disclosed a breach affecting **~1 million members**. Attacker access included customer personal information. If you're a member, expect a notification and be cautious of credential-stuffing attempts on other accounts.
+### Basic-Fit
+Dutch gym chain Basic-Fit got hit and roughly a million members had their data exposed. This one's not going to make massive headlines but it matters — gym memberships have home addresses, payment data, sometimes ID. Not great. If you're a member, check your email for their notification.
 
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/european-gym-giant-basic-fit-data-breach-affects-1-million-members/)
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/european-gym-giant-basic-fit-data-breach-affects-1-million-members/)
 
 ### Rockstar Games
-**ShinyHunters** leaked analytics data stolen from **Anodot**, a third-party data platform used by Rockstar. This is a classic third-party/supply-chain breach — the target wasn't Rockstar's core systems, but their vendor's. Expect more of these.
+ShinyHunters leaked analytics data from Rockstar, but here's the thing — Rockstar itself didn't get breached directly. Their vendor **Anodot** did. This is the third-party supply chain problem playing out in real time, again. Companies spend millions hardening their own perimeter and then a smaller vendor with access to their data gets popped. Rinse and repeat.
 
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/stolen-rockstar-games-analytics-data-leaked-by-extortion-gang/)
-
----
-
-## 🕸️ FBI Takes Down W3LL Phishing Platform — Developer Arrested
-
-The **FBI Atlanta Field Office**, working with Indonesian authorities, dismantled the **W3LL** phishing-as-a-service platform and arrested its alleged developer. W3LL was a sophisticated tool that allowed low-skill attackers to run MFA-bypassing phishing campaigns at scale. This is reportedly the **first joint US–Indonesia enforcement action** targeting a phishing kit developer — a positive step for international cybercrime cooperation.
-
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/fbi-takedown-of-w3ll-phishing-service-leads-to-developer-arrest/)
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/stolen-rockstar-games-analytics-data-leaked-by-extortion-gang/)
 
 ---
 
-## 🔐 Critical wolfSSL Vulnerability — Forged Certificates
+## 🕸️ W3LL Phishing Service Taken Down — Developer Arrested
 
-A **critical bug** in the widely-used **wolfSSL** library allows attackers to forge certificates by exploiting improper verification of the hash algorithm during **ECDSA signature** checking. wolfSSL is embedded in everything from IoT devices to embedded systems. Check your dependencies — if anything in your stack uses wolfSSL, prioritize patching.
+Genuinely good news today. The FBI, working with Indonesian authorities, took down **W3LL** — a phishing-as-a-service platform that was basically handing script kiddies a ready-made MFA-bypass phishing kit on a subscription. The alleged developer got arrested in Indonesia.
 
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-flaw-in-wolfssl-library-enables-forged-certificate-use/)
+What's notable here is this is reportedly the **first joint US-Indonesia enforcement action** against a phishing kit dev. International cybercrime cooperation is slow and painful but this is a W. Hopefully it sticks.
 
----
-
-## 🦠 JanelaRAT Banking Malware — 14,739 Attacks in Brazil
-
-**JanelaRAT**, a modified version of BX RAT, continues hammering **Latin American financial institutions**. Kaspersky reports **14,739 attacks in Brazil** and **11,695 in Mexico** in 2025 alone. The malware uses a custom title-bar detection mechanism to target specific banking portals, logging keystrokes, taking screenshots, and stealing crypto wallet data. The threat actors are actively updating the infection chain.
-
-📎 [Source – The Hacker News](https://thehackernews.com/2026/04/janelarat-malware-targets-latin.html)
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/fbi-takedown-of-w3ll-phishing-service-leads-to-developer-arrest/)
 
 ---
 
-## 📍 Surveillance: Law Enforcement Tracked 500M Devices via Ad Data
+## 🔐 wolfSSL — Critical Cert Forgery Bug
 
-**Citizen Lab** published a report revealing that **Hungarian intelligence**, **El Salvador police**, and multiple **US law enforcement agencies** (including ICE, DHS, and various police departments) used a tool called **Webloc** — built by Israeli company Cobwebs Technologies — to track the location of **500 million devices** using advertising bid-stream data. No warrant required. The tool is now sold by **Penlink** after a 2023 merger.
+This one is going to quietly affect a ton of things people aren't even thinking about. wolfSSL is everywhere — embedded devices, IoT gear, routers — and there's a critical vulnerability where attackers can **forge certificates** by abusing how the library verifies hash algorithms in ECDSA signatures. 
 
-This is a big one for privacy advocates. Ad-tech surveillance infrastructure continues to be repurposed as mass tracking tooling with minimal oversight.
+The headache with wolfSSL vulns is you're not just patching an app on your laptop. Half the time the vulnerable version is baked into firmware that the vendor won't update for 18 months, if ever. Still — worth auditing what you run that might pull it in as a dependency.
 
-📎 [Source – The Hacker News](https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html)
-
----
-
-## 🍎 OpenAI Rotates macOS Code-Signing Certs
-
-OpenAI rotated potentially exposed **macOS code-signing certificates** after a GitHub Actions workflow inadvertently executed a **malicious Axios npm package** during a supply chain attack. While no user data was directly impacted, this is a reminder that CI/CD pipelines are high-value targets — a compromised package in your build workflow can sign malicious binaries with your legitimate certificates.
-
-📎 [Source – BleepingComputer](https://www.bleepingcomputer.com/news/security/openai-rotates-macos-certs-after-axios-attack-hit-code-signing-workflow/)
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/critical-flaw-in-wolfssl-library-enables-forged-certificate-use/)
 
 ---
 
-## 🧠 TL;DR
+## 🦠 JanelaRAT Still Grinding Through Latin America
 
-| Story | Severity | Action |
+Kaspersky dropped a report on **JanelaRAT** today — basically a souped-up banking trojan that's been absolutely hammering Brazil and Mexico. Over **14,700 attacks in Brazil** and nearly **12,000 in Mexico** in 2025. The thing uses a custom title-bar detection trick to figure out when a victim has a targeted banking site open, then starts keylogging and screenshotting.
+
+The operators are actively updating it too, which tells you this is a well-funded, ongoing operation and not some old malware limping along. If you're working with clients in LatAm, this is worth flagging.
+
+📎 [The Hacker News](https://thehackernews.com/2026/04/janelarat-malware-targets-latin.html)
+
+---
+
+## 📍 Law Enforcement Was Tracking Half a Billion Devices Through Ads
+
+Okay this one genuinely bothered me. Citizen Lab published a report showing that law enforcement agencies — including **ICE, DHS, and multiple US police departments**, plus Hungarian intelligence and El Salvador police — were using a tool called **Webloc** to track the physical location of devices. No warrants. Just buying access to ad bid-stream data and running it through a surveillance platform built by Israeli company Cobwebs Technologies, now sold by **Penlink**.
+
+500 million devices. Through ads. The infrastructure that serves you a banner ad about running shoes is the same infrastructure being used to physically locate people. I think about the implications of that a lot.
+
+📎 [The Hacker News](https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html)
+
+---
+
+## 🍎 OpenAI Had a Supply Chain Scare Too
+
+OpenAI rotated their macOS code-signing certificates after a GitHub Actions workflow accidentally executed a **malicious Axios npm package** — a supply chain attack that hit their build pipeline. No user data was directly compromised, but the scary part is that a poisoned package in your CI/CD could potentially sign malicious binaries with your legit cert before anyone notices.
+
+It's a good reminder: your build pipeline is part of your attack surface. Lock it down like you would production.
+
+📎 [BleepingComputer](https://www.bleepingcomputer.com/news/security/openai-rotates-macos-certs-after-axios-attack-hit-code-signing-workflow/)
+
+---
+
+## 🧠 Quick Hits Table
+
+| Story | Severity | What To Do |
 |---|---|---|
-| Adobe Acrobat zero-day | 🔴 Critical | Patch immediately |
-| CPUID supply chain attack | 🔴 Critical | Check downloads from Apr 9–10 |
-| Booking.com breach | 🟠 High | Reset credentials |
-| W3LL phishing takedown | 🟢 Win | No action needed |
-| wolfSSL cert forgery | 🔴 Critical | Check if you use wolfSSL |
-| JanelaRAT banking trojan | 🟠 High | Relevant if in LatAm region |
-| Webloc mass surveillance | 🟡 Medium | Awareness |
-| OpenAI cert rotation | 🟡 Medium | Watch for supply chain attacks |
+| Adobe Acrobat zero-day | 🔴 Critical | Patch now, not later |
+| CPUID supply chain | 🔴 Critical | Check Apr 9–10 downloads |
+| Booking.com breach | 🟠 High | Change credentials |
+| W3LL takedown | 🟢 Win | Nothing — just enjoy it |
+| wolfSSL cert forgery | 🔴 Critical | Audit your dependencies |
+| JanelaRAT banking malware | 🟠 High | Flag for LatAm-facing clients |
+| Webloc ad surveillance | 🟡 Awareness | Know it exists |
+| OpenAI cert rotation | 🟡 Medium | Review your own CI/CD security |
 
 ---
+
+Stay paranoid out there.
 
 *Sources: [The Hacker News](https://thehackernews.com) · [BleepingComputer](https://www.bleepingcomputer.com)*
 

@@ -23,7 +23,14 @@
   upgrade-insecure-requests;
 "/>
 
-<!-- Security: prevent MIME-type sniffing (meta fallback; HTTP header preferred) -->
+<!-- Page views counter (fixed bottom-right) -->
+<style>
+  #view-counter { position:fixed; bottom:14px; right:14px; z-index:9999; opacity:0.7; transition:opacity 0.2s; }
+  #view-counter:hover { opacity:1; }
+</style>
+<a id="view-counter" href="https://hits.sh/bigkahunaburger87.github.io/" target="_blank" rel="noopener">
+  <img src="https://hits.sh/bigkahunaburger87.github.io.svg?style=flat-square&color=ff6600&labelColor=111111&label=views" alt="Page Views" height="20"/>
+</a>
 <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
 
 <!-- Security: legacy XSS filter for older browsers -->

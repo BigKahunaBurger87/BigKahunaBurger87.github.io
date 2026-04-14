@@ -486,20 +486,3 @@ footer a { color: #ff6600 !important; }
     color: #000;
     border-color: #ff6600;
 }
-
-/* ── Page Views Counter stat card ───────────────────────────────────────── */
-.stat-card-views {
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.stat-label-top {
-    margin-bottom: 0.4rem;
-}
-
-.views-badge {
-    display: block;
-    height: 22px;
-    border-radius: 2px;
-}

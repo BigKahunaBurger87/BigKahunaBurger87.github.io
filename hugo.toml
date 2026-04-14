@@ -1,6 +1,6 @@
 baseURL = 'https://BigKahunaBurger87.github.io/'
 languageCode = 'en-us'
-title = 'BigKahunaBurger87'
+title = 'BigKahunaBurger87 - Blog, Walkthroughs & Tools'
 theme = 'PaperMod'
 
 [author]
